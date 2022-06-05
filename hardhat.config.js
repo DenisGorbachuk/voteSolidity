@@ -19,16 +19,16 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
 module.exports = {
   solidity: "0.8.4",
-  networks: {
-    rinkeby: {
-      url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
-      accounts: [process.env.PRIVATE_KEY]
-    },
-    hardhat: {
-      chainId: 1337
-    }
-  },
-  etherscan: {
-    apiKey: `${process.env.ETHERSCAN_KEY}`
-  }
+  // networks: {
+  //   rinkeby: {
+  //     url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`,
+  //     accounts: [process.env.PRIVATE_KEY]
+  //   },
+  //   hardhat: {
+  //     chainId: 1337
+  //   }
+  // },
+  // etherscan: {
+  //   apiKey: `${process.env.ETHERSCAN_KEY}`
+  // }
 };
