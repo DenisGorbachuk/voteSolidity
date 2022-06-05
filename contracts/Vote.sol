@@ -86,11 +86,7 @@ contract Voting {
         address _thisContract = address(this);
             _to.transfer(_thisContract.balance);
     }
-
-    function getBalance(address _address) public view returns(uint) {
-        return _address.balance;
-    }
-
+    
     function getContractBalance() public view returns(uint) {
         return address(this).balance;
     }

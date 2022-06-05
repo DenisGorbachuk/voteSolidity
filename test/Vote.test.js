@@ -130,18 +130,16 @@ describe("Vote", function() {
             await expect(vote.withdrawFEE(0)).to.be.revertedWith("voting is not over yet")        
             
             await vote.stopVote(0)
+
             let balanceContractAfterStop = await vote.connect(voter3).getContractBalance()
-            let balanceOwner = await vote.connect(voter3).getBalance(owner.address)
-            let expectBalanceOwner = BigInt(balanceOwner) + BigInt(balanceContractAfterStop);
-            await vote.withdrawFEE(0);
+            
+            const withdrawTx = await vote.withdrawFEE(0);
 
+            await expect(() => withdrawTx).to.changeEtherBalance(owner, balanceContractAfterStop)
 
-
-            //expect(expectBalanceOwner).to.eq(await vote.connect(voter3).getBalance(owner.address))
             expect(await vote.win(0)).to.eq(cand2.address)
             
             const masPart = await vote.participants(0)
-            console.log("get partoicipians index 1, expect voter3", masPart[1])
             expect(masPart[1]).to.eq(voter3.address)
 
         })
