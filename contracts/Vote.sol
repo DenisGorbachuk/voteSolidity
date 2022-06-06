@@ -75,7 +75,6 @@ contract Voting {
         return votes[_idOfVote].countOfVotes[_addressCandidat];
     }
 
-
     function participants(uint _idOfVote) public view returns(address[] memory) {
         return votes[_idOfVote].participants;
     }
@@ -86,7 +85,7 @@ contract Voting {
         address _thisContract = address(this);
             _to.transfer(_thisContract.balance);
     }
-    
+
     function getContractBalance() public view returns(uint) {
         return address(this).balance;
     }
