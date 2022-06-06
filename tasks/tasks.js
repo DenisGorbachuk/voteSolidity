@@ -32,7 +32,7 @@ task("stopVote", "stopping the voting")
     await vote.stopVote(taskArgs.votingId)
 });
 
-task("withdrawn", "withdrawn fee")
+task("withdrawFEE", "withdrawn fee")
   .addParam("voteContractAddress", "voteContractAddress")
   .addParam("votingId", "ID of voting")
   .addParam("to", "address to which to send")
